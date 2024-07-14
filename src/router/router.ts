@@ -8,6 +8,7 @@ import {
 import Login from "../pages/Login.vue";
 import NotFound from "../pages/NotFound.vue";
 import Dashboard from "../pages/Dashboard.vue";
+import SignUp from "../pages/SignUp.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -19,6 +20,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/login",
     name: "Login",
     component: Login,
+  },
+  {
+    path: "/signup",
+    name: "SignUp",
+    component: SignUp,
   },
 
   {

@@ -1,3 +1,21 @@
+<script setup lang="ts">
+import { reactive } from "vue";
+import { Icon } from "@iconify/vue";
+import { useRouter, Router } from "vue-router";
+import LoginForm from "../interfaces/LoginForm";
+
+const loginForm: LoginForm = reactive({
+  userName: "",
+  password: "",
+});
+
+const router: Router = useRouter();
+
+const login = (): void => {
+  router.push("/");
+};
+</script>
+
 <template>
   <section class="bg-gray-50 dark:bg-gray-900">
     <div
@@ -21,11 +39,7 @@
           </h1>
           <form class="space-y-4 md:space-y-6" action="#">
             <div>
-              <label
-                for="userName"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >Kullanıcı Adı</label
-              >
+              <label for="userName" class="formInputLabel">Kullanıcı Adı</label>
               <input
                 name="userName"
                 id="email"
@@ -35,11 +49,7 @@
               />
             </div>
             <div>
-              <label
-                for="password"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >Şifre</label
-              >
+              <label for="password" class="formInputLabel">Şifre</label>
               <input
                 type="password"
                 name="password"
@@ -57,20 +67,3 @@
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-import { reactive } from "vue";
-import { Icon } from "@iconify/vue";
-import { useRouter, Router } from "vue-router";
-import LoginForm from "../interfaces/LoginForm";
-
-const loginForm: LoginForm = reactive({
-  userName: "",
-  password: "",
-});
-const router: Router = useRouter();
-
-const login = (): void => {
-  router.push("/");
-};
-</script>
