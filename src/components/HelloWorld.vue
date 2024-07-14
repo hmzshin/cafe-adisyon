@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed } from "vue";
+import { store } from "../store/store";
 
-defineProps<{ msg: string }>();
-
-const count = ref(0);
+const myStore = store();
+const count = computed(() => myStore.count);
+const doubleCount = computed(() => myStore.doubleCount);
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <div>
+    <p>Count: {{ count }}</p>
+    <p>{{ doubleCount }}</p>
+    <button @click="myStore.increment">Increment</button>
+  </div>
 </template>
 
 <style scoped></style>
