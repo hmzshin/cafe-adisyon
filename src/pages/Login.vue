@@ -61,14 +61,16 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import { Icon } from "@iconify/vue";
-import { useRouter } from "vue-router";
+import { useRouter, Router } from "vue-router";
+import LoginForm from "../interfaces/LoginForm";
 
-const loginForm = reactive({ userName: "", password: "", isRemember: false });
-const router = useRouter();
+const loginForm: LoginForm = reactive({
+  userName: "",
+  password: "",
+});
+const router: Router = useRouter();
 
-const login = () => {
+const login = (): void => {
   router.push("/dashboard");
 };
 </script>
-
-<style scoped></style>
