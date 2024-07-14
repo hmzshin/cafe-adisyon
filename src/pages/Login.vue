@@ -71,6 +71,6 @@ const loginForm: LoginForm = reactive({
 const router: Router = useRouter();
 
 const login = (): void => {
-  router.push("/dashboard");
+  router.push("/");
 };
 </script>

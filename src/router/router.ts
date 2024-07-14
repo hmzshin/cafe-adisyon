@@ -7,19 +7,31 @@ import {
 
 import Login from "../pages/Login.vue";
 import NotFound from "../pages/NotFound.vue";
-import HomePage from "../pages/HomePage.vue";
+import Dashboard from "../pages/Dashboard.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "HomePage",
-    component: HomePage,
+    name: "Dashboard",
+    component: Dashboard,
   },
   {
     path: "/login",
     name: "Login",
     component: Login,
   },
+
+  {
+    path: "/hizli-satis",
+    name: "FastSale",
+    component: Login,
+  },
+  {
+    path: "/masa-satis",
+    name: "TableSale",
+    component: Login,
+  },
+
   {
     path: "/:catchAll(.*)",
     name: "NotFound",
