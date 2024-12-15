@@ -1,53 +1,30 @@
-import {
-  createRouter,
-  createWebHistory,
-  RouteRecordRaw,
-  Router,
-} from "vue-router";
+import { createRouter, createWebHistory } from 'vue-router'
+import Menu from '@/views/Menu.vue'
 
-import Login from "../pages/Login.vue";
-import NotFound from "../pages/NotFound.vue";
-import Dashboard from "../pages/Dashboard.vue";
-import SignUp from "../pages/SignUp.vue";
+const router = createRouter({
+  history: createWebHistory(import.meta.env.VITE_BASE_URL),
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Menu,
+    },
+    {
+      path: '/kasa',
+      name: 'kasa',
+      component: () => import('../views/Dashboard.vue'),
+    },
+    {
+      path: '/menu',
+      name: 'menu',
+      component: Menu,
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'not-found',
+      component: () => import('../views/NotFoundView.vue'),
+    },
+  ],
+})
 
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: "/",
-    name: "Dashboard",
-    component: Dashboard,
-  },
-  {
-    path: "/login",
-    name: "Login",
-    component: Login,
-  },
-  {
-    path: "/signup",
-    name: "SignUp",
-    component: SignUp,
-  },
-
-  {
-    path: "/hizli-satis",
-    name: "FastSale",
-    component: Login,
-  },
-  {
-    path: "/masa-satis",
-    name: "TableSale",
-    component: Login,
-  },
-
-  {
-    path: "/:catchAll(.*)",
-    name: "NotFound",
-    component: NotFound,
-  },
-];
-
-const router: Router = createRouter({
-  history: createWebHistory(),
-  routes,
-});
-
-export default router;
+export default router

@@ -1,7 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { RouterView } from 'vue-router'
+import Header from '@/components/Header.vue'
+</script>
 
 <template>
-  <router-view></router-view>
+  <Header />
+  <RouterView class="container mx-auto bg-bg-color font-sans" />
 </template>
 
-<style scoped></style>
+<style></style>

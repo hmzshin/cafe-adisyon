@@ -1,16 +1,22 @@
-import { createApp } from "vue";
-import { createPinia } from "pinia";
-import router from "./router/router";
-import ElementPlus from "element-plus";
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 
-import App from "./App.vue";
-import "element-plus/dist/index.css";
-import "./index.css";
+import tr from 'element-plus/es/locale/lang/tr'
+import 'dayjs/locale/tr'
+import './index.css'
 
-const pinia = createPinia();
-const app = createApp(App);
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 
-app.use(ElementPlus);
-app.use(pinia);
-app.use(router);
-app.mount("#app");
+import App from './App.vue'
+import router from './router/router'
+
+const app = createApp(App)
+
+app.use(ElementPlus, {
+  locale: tr,
+})
+app.use(createPinia())
+app.use(router)
+
+app.mount('#app')
